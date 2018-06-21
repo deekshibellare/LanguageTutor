@@ -88,8 +88,9 @@ extension UIToolbar {
         keyboardDoneButtonView.sizeToFit()
         keyboardDoneButtonView.backgroundColor = UIColor(named: Colors.tutorGray.rawValue)
         let doneButton = UIBarButtonItem(title: title, style: .done, target:target, action: #selector(UIViewController.doneEditing))
+        doneButton.width   = keyboardDoneButtonView.frame.size.width
         doneButton.tintColor = UIColor.white
-        keyboardDoneButtonView.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), doneButton,UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)]
+        keyboardDoneButtonView.items = [doneButton]
         return keyboardDoneButtonView
     }
 }
