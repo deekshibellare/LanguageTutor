@@ -6,12 +6,14 @@ User enters the translation of that word in English. For each correct answer use
 
 User can choose to repeat the lesson
 
-Once user enters correct answer for all chapters in the lesson 4 times, lesson will be marked as complete
+Once user's scrore is 4 for all chapters in the lesson, lesson will be marked as complete
 
 ## Requirements
 
 Xcode 10.0 beta
 Swift 4.2
+
+It is an universal app which runs on iPhone and iPad
 
 ## Architecture
 MVVM
