@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 typealias CompletionHandler = (_ objects:[[String:String]]?) -> Void
 
+
+/// Read the CSV file from the document directory.
 class CSV {
     
     var fileName:String
@@ -22,6 +24,7 @@ class CSV {
         self.delimiter = delimiter
     }
     
+    //Reads the file and returns the array of rows dictionary
     func read(_ completionHandler:@escaping CompletionHandler) {
         DispatchQueue.global().async {
             
@@ -66,6 +69,12 @@ class CSV {
         }
     }
     
+    
+    /// Write the CSV file with the given headerkeys and objects
+    ///
+    /// - Parameters:
+    ///   - headerKeys: Header keys in the CSV file
+    ///   - objects: Data rows as dictionary
     func write(headerKeys:[String],objects:[[String:String]]) {
         var stringData = headerKeys.joined(separator: self.delimiter) + endOfLine
         for object in objects {
@@ -76,11 +85,12 @@ class CSV {
             let rowData = rowValues.joined(separator: self.delimiter) + endOfLine
             stringData += rowData
         }
-        PersistenceStore.save(lesson: stringData, withName: self.fileName)
+        PersistenceStore.save(data: stringData, withName: self.fileName)
     }
 }
 
 extension Dictionary {
+    //Combines array of keys and values to produce a dictionary
     init(keys: [Key], values: [Value]) {
         self.init()
         

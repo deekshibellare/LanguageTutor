@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// Generic class to observe for the keyboard notifications and methods to respond to it
 protocol KeyboardHandler {
     
     var scrollView: UIScrollView! { get }
@@ -77,7 +79,17 @@ extension UIViewController {
     }
 }
 
+
+// MARK: - UIToolbar
 extension UIToolbar {
+    
+    
+    /// Returns the toolbar view with given properties
+    /// Toolbar will have a action button which calls 'doneEditing' method on the target
+    /// - Parameters:
+    ///   - title: title of the action button in the toolbar
+    ///   - target: object on which action has to be triggered
+    /// - Returns: Fully initalised toolbar
     class func keyboardTopBar(withTitle title:String,target: UIViewController) -> UIToolbar {
         let keyboardDoneButtonView = UIToolbar()
         keyboardDoneButtonView.sizeToFit()

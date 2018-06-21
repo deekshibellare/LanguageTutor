@@ -8,6 +8,9 @@
 
 import Foundation
 
+//Named colors from the Asset catalog
+//This is a helper enum for named colors.
+//It helps in inteligent code completion and typos while using named colors
 enum Colors:String {
     case tutorGray
     case tutorGreen
