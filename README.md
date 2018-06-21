@@ -17,3 +17,7 @@ Swift 4.2
 MVVM
 
 
+![LanguageTutorApp](https://raw.githubusercontent.com/deekshibellare/LanguageTutor/master/Screens/LanguageTutor.png)
+
+[See Other Screens of the app](https://github.com/deekshibellare/LanguageTutor/blob/master/Screens/LanguageTutorApp.pdf)
+
