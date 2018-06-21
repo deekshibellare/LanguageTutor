@@ -23,9 +23,20 @@ class LessonViewController: UIPageViewController {
         
         if let initialViewController = self.viewController(at: 0) {
             scroll(to:initialViewController)
+        } else {
+            showResultViewController()
         }
     }
     
+    // MARK: Public methods
+    func restart() {
+        viewModel.restart()
+        if let initialViewController = self.viewController(at: 0) {
+            scroll(to:initialViewController)
+        }
+    }
+    
+    // MARK: Private methods
     private func viewController(at index:Int) -> UIViewController? {
         guard let lastIndex = viewModel.lastIndex,index <= lastIndex, index >= 0  else {
             return nil
@@ -53,8 +64,13 @@ class LessonViewController: UIPageViewController {
     }
     
     private func showResultViewController() {
+        
+        viewModel.save()
+        
         let storyBoard = UIStoryboard(.main)
         let resultViewController:ResultViewController = storyBoard.instantiateViewController()
+        let result = viewModel.result()
+        resultViewController.viewModel = result
         self.navigationController?.pushViewController(resultViewController, animated: true)
     }
     

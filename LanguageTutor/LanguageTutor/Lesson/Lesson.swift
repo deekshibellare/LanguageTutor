@@ -11,15 +11,12 @@ import Foundation
 class Lesson {
     
     var name:String?
-    var isCompleted:Bool = false
-    var chapters = [Chapter]()
+    var allChapters = [Chapter]()
+    var remainingChapters = [Chapter]()
     var chapterFinishCount:Int = 4
     
-    var correctAnswers:Int = 0
-    var wrongAnswers:Int = 0
-    
     var totalChapters:Int {
-        return chapters.count
+        return allChapters.count
     }
     
     // MARK: Init
@@ -27,15 +24,21 @@ class Lesson {
         self.name = name
         for chapterDict in chaptersArray {
             if let chapter = Chapter(dictionary: chapterDict) {
-                self.chapters.append(chapter)
+                self.allChapters.append(chapter)
             }
         }
+        self.computeRemainingChapters()
+    }
+    
+    func computeRemainingChapters()  {
+        let remainingChapters = allChapters.filter{ $0.completionCount < chapterFinishCount }
+        self.remainingChapters = remainingChapters
     }
     
     func encode() -> [[String:String]] {
         
         var encodedChapters = [[String:String]]()
-        for chapter in self.chapters {
+        for chapter in self.allChapters {
             encodedChapters.append(chapter.encode())
         }
         return encodedChapters
@@ -43,27 +46,19 @@ class Lesson {
     
     // MARK: Public methods
     func completedChapters() -> [Chapter]? {
-        let completedChapters = chapters.filter{ $0.completionCount >= chapterFinishCount }
+        let completedChapters = allChapters.filter{ $0.completionCount >= chapterFinishCount }
         return completedChapters
     }
     
-    func remainingChapters() -> [Chapter]? {
-        let remainingChapters = chapters.filter{ $0.completionCount < chapterFinishCount }
-        return remainingChapters
+    func isLessonCompleted() -> Bool {
+        return allChapters.allSatisfy{$0.completionCount >= chapterFinishCount}
     }
     
     func updateChapter(withQuestion question:String,isCorrectAnswer:Bool) -> Bool {
-        guard let chapter = chapters.filter({$0.question == question}).first else {
+        guard let chapter = allChapters.filter({$0.question == question}).first else {
             return false
         }
         chapter.completionCount += isCorrectAnswer ? 1 : -1
-        
-        //update counters
-        if isCorrectAnswer {
-            correctAnswers += 1
-        } else {
-            wrongAnswers += 1
-        }
         return true
     }
 }

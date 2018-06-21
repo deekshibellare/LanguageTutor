@@ -19,9 +19,11 @@
 		4578DFD820DA7DA900939D6C /* ChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578DFD720DA7DA900939D6C /* ChapterViewModel.swift */; };
 		4578DFDA20DAC7E500939D6C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578DFD920DAC7E500939D6C /* ResultViewController.swift */; };
 		4578DFDC20DACD7200939D6C /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578DFDB20DACD7200939D6C /* LessonViewModel.swift */; };
-		4578DFDE20DB1E4E00939D6C /* ColorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578DFDD20DB1E4E00939D6C /* ColorHelpers.swift */; };
+		4578DFDE20DB1E4E00939D6C /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578DFDD20DB1E4E00939D6C /* ColorHelper.swift */; };
 		4578DFE720DB21E300939D6C /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578DFE620DB21E300939D6C /* IntroViewModel.swift */; };
 		4578DFE920DB23AC00939D6C /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578DFE820DB23AC00939D6C /* Chapter.swift */; };
+		4578E00920DB46AC00939D6C /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578E00820DB46AC00939D6C /* ResultViewModel.swift */; };
+		4578E00B20DB5F1D00939D6C /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578E00A20DB5F1D00939D6C /* NavigationHelper.swift */; };
 		457BA4B920D78116005C2326 /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BA4B820D78116005C2326 /* PersistenceStore.swift */; };
 		457BA4BB20D7BE90005C2326 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BA4BA20D7BE90005C2326 /* Lesson.swift */; };
 		45DAE7F220D9263F00622D93 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAE7F120D9263F00622D93 /* KeyboardHandler.swift */; };
@@ -42,9 +44,11 @@
 		4578DFD720DA7DA900939D6C /* ChapterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewModel.swift; sourceTree = "<group>"; };
 		4578DFD920DAC7E500939D6C /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		4578DFDB20DACD7200939D6C /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
-		4578DFDD20DB1E4E00939D6C /* ColorHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelpers.swift; sourceTree = "<group>"; };
+		4578DFDD20DB1E4E00939D6C /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		4578DFE620DB21E300939D6C /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		4578DFE820DB23AC00939D6C /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		4578E00820DB46AC00939D6C /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		4578E00A20DB5F1D00939D6C /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		457BA4B820D78116005C2326 /* PersistenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStore.swift; sourceTree = "<group>"; };
 		457BA4BA20D7BE90005C2326 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		45DAE7F120D9263F00622D93 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -101,7 +105,8 @@
 				457BA4B820D78116005C2326 /* PersistenceStore.swift */,
 				4525174620D9824000C7BABC /* UIStoryboardHelper.swift */,
 				45DAE7F120D9263F00622D93 /* KeyboardHandler.swift */,
-				4578DFDD20DB1E4E00939D6C /* ColorHelpers.swift */,
+				4578DFDD20DB1E4E00939D6C /* ColorHelper.swift */,
+				4578E00A20DB5F1D00939D6C /* NavigationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				4578DFD920DAC7E500939D6C /* ResultViewController.swift */,
+				4578E00820DB46AC00939D6C /* ResultViewModel.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -234,14 +240,16 @@
 				4578DFD620DA350D00939D6C /* IntroViewController.swift in Sources */,
 				4525174320D946E100C7BABC /* LessonViewController.swift in Sources */,
 				4578DFE720DB21E300939D6C /* IntroViewModel.swift in Sources */,
-				4578DFDE20DB1E4E00939D6C /* ColorHelpers.swift in Sources */,
+				4578DFDE20DB1E4E00939D6C /* ColorHelper.swift in Sources */,
 				457BA4BB20D7BE90005C2326 /* Lesson.swift in Sources */,
 				4578DFE920DB23AC00939D6C /* Chapter.swift in Sources */,
 				4525174720D9824000C7BABC /* UIStoryboardHelper.swift in Sources */,
 				456D21C320D69821003366D0 /* ChapterViewController.swift in Sources */,
 				456D21C120D69821003366D0 /* AppDelegate.swift in Sources */,
 				45DAE7F220D9263F00622D93 /* KeyboardHandler.swift in Sources */,
+				4578E00920DB46AC00939D6C /* ResultViewModel.swift in Sources */,
 				4578DFDC20DACD7200939D6C /* LessonViewModel.swift in Sources */,
+				4578E00B20DB5F1D00939D6C /* NavigationHelper.swift in Sources */,
 				456D21E120D69FAB003366D0 /* CSVParser.swift in Sources */,
 				457BA4B920D78116005C2326 /* PersistenceStore.swift in Sources */,
 				4578DFDA20DAC7E500939D6C /* ResultViewController.swift in Sources */,

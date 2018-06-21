@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -266,20 +267,97 @@
                     <view key="view" contentMode="scaleToFill" id="Ono-kU-2ol">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tb7-yK-KT8">
+                                <rect key="frame" x="23" y="40" width="332" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" name="tutorNightBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="completed" translatesAutoresizingMaskIntoConstraints="NO" id="m1H-b2-7dZ">
+                                <rect key="frame" x="127.5" y="80" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="6TR-L8-QWt"/>
+                                    <constraint firstAttribute="width" constant="120" id="XWB-uB-i52"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-1h-iAI">
+                                <rect key="frame" x="37.5" y="239" width="300" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                <color key="textColor" red="0.078431372550000003" green="0.078431372550000003" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM3-eS-A5g">
+                                <rect key="frame" x="187.5" y="267" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-dQ-KXY">
+                                <rect key="frame" x="187.5" y="290" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW3-xt-0zV">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" name="tutorGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2aM-Pk-zu5"/>
+                                </constraints>
+                                <state key="normal" title="Restart">
+                                    <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartTapped:" destination="2tm-W6-aBh" eventType="touchUpInside" id="MUd-bV-6B8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Tb7-yK-KT8" firstAttribute="top" secondItem="ciB-Zy-vgn" secondAttribute="top" constant="20" id="5vF-PI-w1N"/>
+                            <constraint firstItem="m1H-b2-7dZ" firstAttribute="top" secondItem="Tb7-yK-KT8" secondAttribute="bottom" constant="40" id="98R-8B-7Wn"/>
+                            <constraint firstItem="gtG-dQ-KXY" firstAttribute="top" secondItem="RM3-eS-A5g" secondAttribute="bottom" constant="23" id="Cd5-aY-qBj"/>
+                            <constraint firstItem="tW3-xt-0zV" firstAttribute="bottom" secondItem="ciB-Zy-vgn" secondAttribute="bottom" id="Eat-vO-vm7"/>
+                            <constraint firstItem="WJz-1h-iAI" firstAttribute="width" secondItem="Ono-kU-2ol" secondAttribute="width" multiplier="0.8" id="HBy-I2-ggD"/>
+                            <constraint firstItem="WJz-1h-iAI" firstAttribute="centerX" secondItem="m1H-b2-7dZ" secondAttribute="centerX" id="Hbs-pD-A4r"/>
+                            <constraint firstItem="RM3-eS-A5g" firstAttribute="centerX" secondItem="WJz-1h-iAI" secondAttribute="centerX" id="IeY-fS-l8N"/>
+                            <constraint firstItem="RM3-eS-A5g" firstAttribute="top" secondItem="WJz-1h-iAI" secondAttribute="bottom" constant="28" id="KNc-Tb-0l2"/>
+                            <constraint firstItem="tW3-xt-0zV" firstAttribute="leading" secondItem="ciB-Zy-vgn" secondAttribute="leading" id="YZT-Z8-bN3"/>
+                            <constraint firstItem="gtG-dQ-KXY" firstAttribute="centerX" secondItem="RM3-eS-A5g" secondAttribute="centerX" id="hYU-Ri-wC0"/>
+                            <constraint firstItem="WJz-1h-iAI" firstAttribute="top" secondItem="m1H-b2-7dZ" secondAttribute="bottom" constant="39" id="lj8-dO-rlY"/>
+                            <constraint firstItem="m1H-b2-7dZ" firstAttribute="centerX" secondItem="ciB-Zy-vgn" secondAttribute="centerX" id="qQL-UQ-raq"/>
+                            <constraint firstItem="ciB-Zy-vgn" firstAttribute="trailing" secondItem="Tb7-yK-KT8" secondAttribute="trailing" constant="20" id="r5w-bD-O3g"/>
+                            <constraint firstItem="Tb7-yK-KT8" firstAttribute="leading" secondItem="ciB-Zy-vgn" secondAttribute="leading" constant="23" id="s6O-0d-LMg"/>
+                            <constraint firstItem="tW3-xt-0zV" firstAttribute="trailing" secondItem="ciB-Zy-vgn" secondAttribute="trailing" id="ubj-n0-pT0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ciB-Zy-vgn"/>
                     </view>
+                    <connections>
+                        <outlet property="correctAnswerLabel" destination="RM3-eS-A5g" id="u6A-Ic-f5k"/>
+                        <outlet property="restartButton" destination="tW3-xt-0zV" id="imN-9p-pPt"/>
+                        <outlet property="successLabel" destination="WJz-1h-iAI" id="Wy6-wz-dor"/>
+                        <outlet property="titleLabel" destination="Tb7-yK-KT8" id="feQ-2r-qWk"/>
+                        <outlet property="wrongAnswerLabel" destination="gtG-dQ-KXY" id="LQb-8c-us7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88L-nB-2Ss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1625" y="492"/>
+            <point key="canvasLocation" x="-1626.4000000000001" y="491.60419790104953"/>
         </scene>
     </scenes>
     <resources>
+        <image name="completed" width="100" height="100"/>
         <image name="cycle" width="694" height="486"/>
         <image name="tettnang" width="672" height="600"/>
         <namedColor name="tutorGray">
             <color red="0.49799999594688416" green="0.54900002479553223" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tutorGreen">
+            <color red="0.18000000715255737" green="0.80000001192092896" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tutorNightBlue">
+            <color red="0.20399999618530273" green="0.28600001335144043" blue="0.36899998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

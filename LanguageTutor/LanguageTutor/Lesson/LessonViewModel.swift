@@ -13,23 +13,38 @@ struct LessonViewModel {
     var lesson:Lesson?
     var currentIndex:Int = -1
     var lastIndex:Int? {
-        guard let totalChapters  = self.lesson?.chapters.count else {
+        guard let totalChapters  = self.lesson?.remainingChapters.count else {
             return nil
         }
         return totalChapters - 1
     }
     
-    func updateChapter(withQuestion question:String,isCorrectAnswer:Bool){
+    var correctAnswers:Int = 0
+    var wrongAnswers:Int = 0
+    
+    // MARK: Init
+    init(lesson:Lesson) {
+        self.lesson = lesson
+    }
+    
+    // MARK: Public methods
+    mutating func updateChapter(withQuestion question:String,isCorrectAnswer:Bool){
         _ = self.lesson?.updateChapter(withQuestion: question,
                                        isCorrectAnswer: isCorrectAnswer)
+        
+        if isCorrectAnswer {
+            correctAnswers += 1
+        } else {
+            wrongAnswers += 1
+        }
     }
     
     func chapter(at index:Int) -> ChapterViewModel? {
         guard let lastIndex = self.lastIndex,
             index <= lastIndex, index >= 0  else {
-            return nil
+                return nil
         }
-        let chapter = self.lesson?.chapters[index]
+        let chapter = self.lesson?.remainingChapters[index]
         let question = chapter?.question ?? ""
         let answer = chapter?.answer ?? ""
         let title = self.lesson?.name ?? ""
@@ -39,7 +54,37 @@ struct LessonViewModel {
         return chapterViewModel
     }
     
-    init(lesson:Lesson) {
-        self.lesson = lesson
+    mutating func restart() {
+        
+        currentIndex = -1
+        correctAnswers = 0
+        wrongAnswers = 0
+        self.lesson?.computeRemainingChapters()
+    }
+    
+    func save() {
+        
+        guard let lessonDict = lesson?.encode() else {
+            return
+        }
+        
+        guard let lessonName = lesson?.name else {
+            return
+        }
+        
+        let csv = CSV(fileName:lessonName)
+        
+        if let dict = lessonDict.first {
+            let keys =  Array(dict.keys)
+            csv.write(headerKeys: keys, objects:lessonDict)
+        }
+    }
+    
+    func result() -> ResultViewModel {
+        
+        let title = lesson?.name ?? ""
+        let isLessonCompleted = lesson?.isLessonCompleted() ?? false
+        let result = ResultViewModel(title: title, isLessonCompleted: isLessonCompleted, correctAnswer: correctAnswers, wrongAnswer: wrongAnswers)
+        return result
     }
 }
