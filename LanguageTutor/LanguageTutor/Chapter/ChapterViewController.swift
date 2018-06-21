@@ -63,7 +63,7 @@ class ChapterViewController: UIViewController {
     }
     
     private func processAnswer() {
-        guard let answer = answerTextField.text else {
+        guard let answer = answerTextField.text, answer.isEmpty == false else {
             return
         }
         
