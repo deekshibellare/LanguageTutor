@@ -13,6 +13,8 @@ Once user enters correct answer for all chapters in the lesson 4 times, lesson w
 Xcode 10.0 beta
 Swift 4.2
 
+It is an universal app which runs on iPhone and iPad
+
 ## Architecture
 MVVM
 
