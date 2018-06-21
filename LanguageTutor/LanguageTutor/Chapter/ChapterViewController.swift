@@ -20,6 +20,7 @@ class ChapterViewController: UIViewController {
     @IBOutlet weak var answerTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var titleLabel: UILabel!
     // MARK: - Result Views
     @IBOutlet weak var resultHolderView: UIView!
     @IBOutlet weak var resultView: UIView!
@@ -75,11 +76,12 @@ class ChapterViewController: UIViewController {
     // MARK: - UI
     private func updateUI() {
         
-        keyboardToolBar = UIToolbar.keyboardTopBar(withTitle: "Continue", target: self)
+        keyboardToolBar = UIToolbar.keyboardTopBar(withTitle: "Check", target: self)
         answerTextField.inputAccessoryView = keyboardToolBar
         answerTextField.delegate = self
         
-        questionLabel.text = self.viewModel.question
+        titleLabel.text = viewModel.title
+        questionLabel.text = viewModel.question
         chapterImageView.image = UIImage(named: self.viewModel.question)
     }
     

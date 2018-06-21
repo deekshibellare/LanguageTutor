@@ -9,6 +9,7 @@
 import Foundation
 
 struct ResultViewModel {
+    
     var title:String
     var isLessonCompleted:Bool
     var correctAnswer:Int
