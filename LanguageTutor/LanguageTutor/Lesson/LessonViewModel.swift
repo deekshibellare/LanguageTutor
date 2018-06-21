@@ -74,10 +74,8 @@ struct LessonViewModel {
         
         let csv = CSV(fileName:lessonName)
         
-        if let dict = lessonDict.first {
-            let keys =  Array(dict.keys)
-            csv.write(headerKeys: keys, objects:lessonDict)
-        }
+        let keys =  ["German","English","Count"]
+        csv.write(headerKeys: keys, objects:lessonDict)
     }
     
     func result() -> ResultViewModel {
