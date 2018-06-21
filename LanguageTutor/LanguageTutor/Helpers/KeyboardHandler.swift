@@ -28,10 +28,6 @@ extension KeyboardHandler where Self: UIViewController  {
         //Add observer to get notification about keyboard.
         NotificationCenter.default.addObserver(self, selector: #selector(UIViewController.handleKeyboardAppearence(_:)), name: UIResponder.keyboardDidShowNotification , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(UIViewController.handleKeyboardDisappearance(_:)), name:  UIResponder.keyboardDidHideNotification , object: nil)
-        
-        //add tap gesture
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UIViewController.handleTapGesture(tap:)))
-        self.scrollView.addGestureRecognizer(tapGesture)
     }
     
     func unregisterForKeyboardNotifications() {
@@ -67,9 +63,6 @@ extension UIViewController {
         }
     }
     
-    @objc func handleTapGesture(tap: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
 }
 
 extension UIViewController {

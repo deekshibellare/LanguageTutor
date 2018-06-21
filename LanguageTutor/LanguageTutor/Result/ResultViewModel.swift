@@ -17,7 +17,7 @@ struct ResultViewModel {
     
     var successMessage:String {
         if isLessonCompleted {
-            return "Congratulation, You have just finished the lesson successfully!"
+            return "Congratulations, You have just finished the lesson successfully!"
         }
         return "You have successfully finished the lesson!"
     }
