@@ -48,6 +48,8 @@ class ChapterViewController: UIViewController {
     
     // MARK: - Action methods
     @IBAction func doneAction(_ sender: UIButton) {
+        
+        view.endEditing(true)
         if doneButton.isSelected {
             delegate?.continueToNextChaper()
         } else {
