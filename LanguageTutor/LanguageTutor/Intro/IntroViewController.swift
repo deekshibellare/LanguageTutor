@@ -9,9 +9,13 @@
 import Foundation
 import UIKit
 
+//Welcome screen. Introduces the user to the app and moves to lesson controller
 class IntroViewController: UIViewController {
     
     let viewModel = IntroViewModel()
+    
+    @IBOutlet var introViews: [UIView]!
+    
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -25,6 +29,11 @@ class IntroViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateIntroViews()
     }
     
     // MARK: Action methods
@@ -50,6 +59,14 @@ class IntroViewController: UIViewController {
         let lessonViewModel = LessonViewModel(lesson: lesson)
         lessonViewController.viewModel = lessonViewModel
         self.navigationController?.pushViewController(lessonViewController, animated: true)
+    }
+    
+    func animateIntroViews() {
+        UIView.animate(withDuration:0.3){
+            for view in self.introViews {
+                view.isHidden = false
+            }
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Displays each chapter
 class ChapterViewController: UIViewController {
     
     var viewModel:ChapterViewModel!

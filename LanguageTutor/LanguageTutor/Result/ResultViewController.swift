@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-
+//Displays the results of current run of lesson and navigates for re run if user wants it
 class ResultViewController: UIViewController {
     
     var viewModel:ResultViewModel!

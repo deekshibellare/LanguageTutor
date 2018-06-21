@@ -14,6 +14,7 @@ protocol LessonViewControllerDelegate: class {
     func userAnswered(question:String,isCorrect:Bool)
 }
 
+//Displays lesson which is a collection of chapters
 class LessonViewController: UIPageViewController {
     
     var viewModel:LessonViewModel!
