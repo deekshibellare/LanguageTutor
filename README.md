@@ -1,3 +1,6 @@
+# Take Home project
+Has an algorithum to parse a CSV
+
 # LanguageTutor
 Learn Deutsch in easy way
 
