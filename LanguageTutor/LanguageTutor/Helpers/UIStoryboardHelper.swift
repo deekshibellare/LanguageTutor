@@ -1,5 +1,5 @@
 //
-//  UIStoryboard+Helper.swift
+//  UIStoryboardHelper.swift
 //  LanguageTutor
 //
 //  Created by Deekshith Bellare on 17/06/18.
@@ -18,19 +18,16 @@ extension StoryboardIdentifiable where Self: UIViewController {
         return String(describing: self)
     }
 }
-
 /* MARK: - Extension to intialise the viewcontroller in a consise way. Intialised viewController is automatically typecasted to the type specified during initaliation
  Old way
- 
  ```
  let storyBoard = UIStoryboard(name: "Main", bundle: nil)
  let viewController = storyBoard.instantiateViewControllerWithIdentifier("viewControllerID") as! BrowseViewController
  ```
- 
  New way
  ```
- let storyBoard = UIStoryboard(storyboard: .Library)
- let viewController: TipViewController = storyBoard.instantiateViewController()
+ let storyBoard = UIStoryboard(storyboard: .Main)
+ let viewController: UserViewController = storyBoard.instantiateViewController()
  ```
  */
 extension UIStoryboard {
@@ -39,7 +36,6 @@ extension UIStoryboard {
     enum Storyboard: String {
         case main = "Main"
     }
-    
     
     /// creates a storyboard instance
     ///
@@ -63,6 +59,6 @@ extension UIStoryboard {
         return viewController
     }
 }
-
 extension UIViewController: StoryboardIdentifiable {
 }
+
